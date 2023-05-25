@@ -5,6 +5,11 @@ app.json.compact = False
 
 app.secret_key = b'?w\x85Z\x08Q\xbdO\xb8\xa9\xb65Kj\xa9_'
 
+@app.route('/hello', methods=['GET'])
+def hello():
+    response = make_response(jsonify({"hello": "world"}), 200)
+    return response
+
 @app.route('/sessions/<string:key>', methods=['GET'])
 def show_session(key):
 
